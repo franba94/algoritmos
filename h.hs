@@ -63,3 +63,53 @@ mismosElementos (x:xs) (y:ys) = mismosElementos2 (x:xs) (y:ys) && mismosElemento
 
 capicua :: (Eq t) => [t] -> Bool
 capicua (x:xs) = (x:xs) == reverso (x:xs) 
+
+sumatoria :: [Integer] -> Integer
+sumatoria [] = 0
+sumatoria (x:xs) = x + sumatoria xs  
+
+productoria :: [Integer] -> Integer
+productoria [] = 1 
+productoria (x:xs) = x * productoria xs 
+
+maximo :: [Integer] -> Integer
+maximo [x] = x
+maximo (x:xs) | x >= maximo xs = x
+              | otherwise = maximo xs 
+
+sumarN :: Integer -> [Integer] -> [Integer]
+sumarN n [x] = [n + x] 
+sumarN n (x:xs) = (n + x) : sumarN n xs 
+
+sumarElPrimero :: [Integer] -> [Integer]
+sumarElPrimero [] = []
+sumarElPrimero (x:xs) = sumarN x (x:xs)
+
+sumarElUltimo :: [Integer] -> [Integer]
+sumarElUltimo [] = []
+sumarElUltimo (x:xs) = sumarN (ultimo (x:xs)) (x:xs)
+
+pares :: [Integer] -> [Integer]
+pares [] = []
+pares (x:xs) | mod x 2 == 0 = x : pares xs 
+             | otherwise = pares xs 
+
+multiplosDeN :: Integer -> [Integer] -> [Integer]
+multiplosDeN n [] = []
+multiplosDeN n (x:xs) | mod x n == 0 = x : multiplosDeN n xs 
+                      | otherwise = multiplosDeN n xs
+
+ordenar :: [Integer] -> [Integer]
+ordenar [] = [] 
+ordenar (x:xs) = maximo (x:xs) : ordenar (quitarTodos (maximo (x:xs)) (x:xs))
+
+
+
+
+
+
+
+
+
+
+
