@@ -23,15 +23,26 @@ def suma_total(s: list) -> int:
 
 
 def ordenados(s:list) -> bool:
-   res : bool = True
+   res:bool = True
    for i in range(len(s)-1):
        if s[i] > s[i+1]:
            res = False 
    return res 
 
 
+def palabras(s:[[str]]) -> bool: 
+    res:bool = False
+    for i in range (len(s)):
+        if len(s[i]) > 7:
+            res = True
+    return res  
 
-    
+
+def palindromo(s:list) -> bool:
+    res: bool = False 
+    if s == s[::-1]:
+        res = True
+    return res
 
 
 def tiene_un_numero(contraseña: str) -> bool:
@@ -44,33 +55,23 @@ def tiene_un_numero(contraseña: str) -> bool:
     return vale_condicion 
 
 
-def es_par(num: int) -> bool:
-    return(num % 2 == 0)
+def hay_min(contraseña: str) -> bool: 
+    i: int = 0
+    vale_condicion: bool = False 
 
+    while i < len(contraseña) and not(contraseña[i] >= 'a' and contraseña[i] <= 'z'):
+        i += 1
+    vale_condicion: bool = i < len(contraseña)
+    return vale_condicion
 
-def reemplazar_pares(s:list) -> None:
-    indice_actual: int = 0
-    longitud: int = len(s)
-    while (indice_actual < longitud):
-        if (es_par(indice_actual)):
-            s[indice_actual] = 0
-        indice_actual += 1
+def hay_min2(contraseña:str) -> bool:
+    i: int = 0
+    vale_condicion: bool = False
 
-def pertenece_a_cada_uno(s:[[int]], e:int) -> [bool]:
-    res_pertenece:[] = []
-    
-    indice_actual: int = 0
-    longitud: int = len(s)
-    
-    while (indice_actual < longitud):
-      lista_actual:[int] = s[indice_actual]
-      res_pertenece.append(pertenece(lista_actual,e))
-      indice_actual += 1
-
-    return res_pertenece
-        
-
-
-
-
+    while i < len(contraseña):
+        if (contraseña[i] >= 'a' and contraseña[i] <= 'z'):
+            vale_condicion: bool = True
+        i += 1  
+    return vale_condicion 
+     
 
