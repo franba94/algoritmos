@@ -106,9 +106,35 @@ def recorrer_palabra(palabra: str) -> bool:
     return False 
 
 
-def posicion_pares(x: list) -> int: 
-    for i in range(len(x)):
-        if x[i] % 2 == 0:
-           x[i] = '0'
+def posiciones_pares_cero(numeros: list) -> int:
+    
+    for i in range(0,len(numeros),2):
+        numeros[i] = '0'
 
-    return x 
+    return numeros   
+
+    
+def cadena_sin_vocales(palabra: list) -> str: 
+    vocales = "aeiou"
+    palabra_nueva= ""
+
+    for letra in palabra:
+         if letra not in vocales:
+            palabra_nueva = palabra_nueva + letra 
+    
+    return palabra_nueva 
+
+
+def eliminar_repetidos(numeros: list) -> int:
+    sin_repe = []
+    
+    for i in numeros:
+        if i not in sin_repe:
+            sin_repe.append(i)
+    
+    return sin_repe 
+
+
+def posiciones_pares_cero2(numeros: list) -> int: 
+
+    copia_numeros = list(numeros)
