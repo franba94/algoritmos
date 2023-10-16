@@ -92,3 +92,23 @@ def fortaleza(contraseña: str) -> str:
     else:
          return "AMARILLA" 
 
+def recorrer_palabra(palabra: str) -> bool:
+    vocal: int = 0 
+    i: int = 0
+   
+
+    while i < len(palabra):
+        if palabra[i] == 'a' or 'e' or 'i' or 'o' or 'u':
+            vocal += 1
+            i += 1 
+            if vocal >= 3:
+                return True 
+    return False 
+
+
+def posicion_pares(x: list) -> int: 
+    for i in range(len(x)):
+        if x[i] % 2 == 0:
+           x[i] = '0'
+
+    return x 
