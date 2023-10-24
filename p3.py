@@ -32,24 +32,28 @@ def existe_palabra(palabra: str, nombre_archivo_input: str) -> bool:
 def cantidad_apariciones(nombre_archivo_input: str, palabra: str) -> int:
     archivo_input = open(nombre_archivo_input, "r")
     nombre_archivo_input: str = 'himno.txt'
-    cantidad: int = 0
+    cantidad = 0
+    texto_nuevo = []
+    
     for line in archivo_input.readlines():
-         for p in line.strip("!¡,.;:' ' "):
-             if palabra == p:
-                cantidad += 1 
-
-    return cantidad 
-
-
-
-
+        texto_formateado = line.split()
+        
+        for word in texto_formateado:
+            word = word.lower()
+            word = word.replace('¡','').replace('!','').replace('.','')
+            word = word.replace(';','').replace(',','').replace(':','')
+            texto_nuevo.append(word)
 
 
+    for p in texto_nuevo:
+        if palabra == p:
+            cantidad += 1 
 
+    return cantidad
+    
+    archivo_input.close() 
 
-
-
-
+            
 
 
 def clonarSinComentarios(nombre_archivo_input: str) -> None:
@@ -75,6 +79,33 @@ def es_un_comentario(line: str) -> bool:
                 return True # es un comentario
             return False # NO es un comentario
     return False #caso todos chars ''
+
+
+
+def reverso(nombre_archivo_input: str) -> None:
+    archivo_input = open(nombre_archivo_input, "r")
+    nombre_archivo_output: str = 'himno_reverso.txt'
+    archivo_output = open(nombre_archivo_output, "w")
+    
+
+    for line in archivo_input.readlines():
+        for word in range(len(archivo_input)-1,-1,-1):
+            
+
+    archivo_output.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 from queue import LifoQueue 
@@ -156,10 +187,6 @@ def agruparPorLongitud(nombre_archivo_input: str) -> dict:
     return result 
 
 #print(agruparPorLongitud('ejercicio_19.txt'))
-
-
-
-
 
 
 
