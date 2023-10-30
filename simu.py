@@ -2,7 +2,7 @@ def ultima_aparicion(s: list, e: int) -> int:
     if pertenece(s, e):
         for i in range(len(s)-1,-1,-1):
             if (s[i] == e):
-                return [i]
+                return i
     
 def pertenece(s:list, e:int) -> bool:
     res: bool = False
