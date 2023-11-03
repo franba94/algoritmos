@@ -238,7 +238,18 @@ def esMatriz(s: list) -> bool:
             return False
         else: 
             return True 
-    
+
+
+def filas_ordenadas(matriz:list) -> list:
+    res: list[bool] = []
+    for fila in matriz:
+        if ordenados(fila) == True:
+            res.append(True)
+        else:
+            res.append(False)
+    return res 
+
+#print(filas_ordenadas([[1,2,3],[3,2],[4,6,9]]))
 
            
 
