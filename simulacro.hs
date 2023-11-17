@@ -38,7 +38,10 @@ amigosDe x ((a,b):xs) | x == a = b : amigosDe x xs
 --personaConMasAmigos :: [(String, String)] -> String
  
 
-cantidadAmigos ::
+cantidadAmigos :: String -> [(String, String)] -> Int
+cantidadAmigos x [] = 0
+cantidadAmigos x ((a,b):xs) | x /= a && x /= b = 0
+                            | otherwise = 1 + cantidadAmigos x xs 
 
 
         
